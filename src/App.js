@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import InputForm from './components/InputForm';
 import ToDoList from './components/ToDoList';
+import { deleteItems } from './actions';
 
-const App = (props) => {
-  console.log(props);
+const App = (props) => {  
   return (
     <div>
       <h1>TO-DO List</h1>
@@ -12,7 +12,7 @@ const App = (props) => {
         <InputForm/>
       </div>
       <ToDoList/>
-      <button>Delete the checked ones</button>
+      <button onClick={()=> props.deleteItems()}>Delete the checked ones</button>
     </div>
   );
 }
@@ -23,4 +23,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, {deleteItems})(App);

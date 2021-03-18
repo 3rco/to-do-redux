@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { toggleItem} from '../actions';
 
 const ToDoList= (props) => {
-  console.log('PROPS LİSTE', props.liste)
  return (
         <div>
         {props.liste.map(item => (
-          <div key={item.id}>
+          <div key={item.id} onClick={()=> props.toggleItem(item.id)}>
             {item.baslik}
           </div>
         ))}
@@ -20,4 +20,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(ToDoList);
+export default connect(mapStateToProps, {toggleItem})(ToDoList);
