@@ -2,8 +2,8 @@ export const ADD = "ADD";
 export const DELETE = "DELETE";
 export const TOGGLE = "TOGGLE";
 
-export const addToList = text => {
-    return { type: ADD, payload: text };
+export const addToList = text => dispatch =>{
+    dispatch({ type: ADD, payload: text });
 };
 
 export const toggleItem = id => {
