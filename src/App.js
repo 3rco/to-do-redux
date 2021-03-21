@@ -3,16 +3,19 @@ import { connect } from 'react-redux';
 import InputForm from './components/InputForm';
 import ToDoList from './components/ToDoList';
 import { deleteItems } from './actions';
+import "./styles.css";
 
 const App = (props) => {  
   return (
-    <div>
+    <div className="App">
       <h1>TO-DO List</h1>
-      <div>
+      <div className="ekleme_formu">
         <InputForm/>
       </div>
+      
       <ToDoList/>
-      <button onClick={()=> props.deleteItems()}>Delete the checked ones</button>
+      
+      <button className="temizle" onClick={()=> props.deleteItems()}>Delete the checked ones</button>
     </div>
   );
 }
